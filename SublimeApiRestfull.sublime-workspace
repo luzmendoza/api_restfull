@@ -1,0 +1,386 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"t",
+				"$this〔variable〕"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"ret",
+				"return〔keyword〕"
+			],
+			[
+				"beg",
+				"belongsToMany〔function〕"
+			],
+			[
+				"bel",
+				"belongsToMany〔function〕"
+			],
+			[
+				"veri",
+				"verification_token"
+			],
+			[
+				"con",
+				"const〔keyword〕"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"item",
+				"item_id"
+			],
+			[
+				"req",
+				"required"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"dro",
+				"dropdown-item"
+			],
+			[
+				"pagina",
+				"paginate"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"for",
+				"form\tTag"
+			],
+			[
+				"rou",
+				"route"
+			],
+			[
+				"priv",
+				"provider"
+			],
+			[
+				"google",
+				"google_id"
+			],
+			[
+				"user",
+				"userSocial"
+			],
+			[
+				"b",
+				"btn-primary"
+			],
+			[
+				"fu",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/APIRestfull/database/factories/TransactionFactory.php",
+		"/C/xampp/htdocs/APIRestfull/database/seeds/DatabaseSeeder.php",
+		"/C/xampp/htdocs/APIRestfull/app/Http/Controllers/User/UserController.php",
+		"/C/xampp/htdocs/APIRestfull/Homestead.yaml",
+		"/C/xampp/htdocs/APIRestfull/SublimeApiRestfull.sublime-project",
+		"/C/xampp/htdocs/APIRestfull/.env",
+		"/C/xampp/htdocs/APIRestfull/Vagrantfile",
+		"/C/xampp/htdocs/APIRestfull/database/migrations/2019_07_25_222951_create_products_table.php",
+		"/C/xampp/htdocs/APIRestfull/database/migrations/2019_07_25_223104_create_transactions_table.php",
+		"/C/xampp/htdocs/APIRestfull/database/migrations/2019_07_29_213400_category_product_table.php",
+		"/C/xampp/htdocs/APIRestfull/app/User.php",
+		"/C/xampp/htdocs/APIRestfull/database/factories/UserFactory.php",
+		"/C/xampp/htdocs/APIRestfull/database/factories/CategoryFactory.php",
+		"/C/xampp/htdocs/APIRestfull/database/factories/ProductFactory.php",
+		"/C/xampp/htdocs/APIRestfull/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/APIRestfull/database/migrations/2019_07_25_223406_create_categories_table.php",
+		"/C/xampp/htdocs/APIRestfull/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/APIRestfull/app/Category.php",
+		"/C/xampp/htdocs/APIRestfull/app/Product.php",
+		"/C/xampp/htdocs/APIRestfull/app/Seller.php",
+		"/C/xampp/htdocs/APIRestfull/app/Buyer.php",
+		"/C/xampp/htdocs/APIRestfull/config/database.php",
+		"/C/xampp/htdocs/APIRestfull/app/Transaction.php",
+		"/C/xampp/htdocs/APIRestfull/routes/api.php",
+		"/C/xampp/htdocs/APIRestfull/app/Providers/RouteServiceProvider.php",
+		"/C/xampp/htdocs/APIRestfull/routes/web.php",
+		"/C/xampp/htdocs/APIRestfull/app/Providers/AuthServiceProvider.php",
+		"/C/xampp/htdocs/APIRestfull/app/Http/Kernel.php",
+		"/C/xampp/htdocs/APIRestfull/app/seller.php",
+		"/C/xampp/htdocs/APIRestfull/app/buyer.php",
+		"/C/xampp/htdocs/APIRestfull/config/app.php",
+		"/C/xampp/htdocs/APIRestfull/composer.json",
+		"/C/Users/luz.mendoza/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
+		"/C/Users/luz.mendoza/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
+		"/C/xampp/htdocs/APIRestfull/app/ahesverdad.php",
+		"/C/xampp/htdocs/APIRestfull/vendor/laravel/framework/src/Illuminate/Notifications/Notifiable.php",
+		"/C/xampp/htdocs/socialite/resources/views/home.blade.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/LocationController.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/ItemController.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/PriceController.php",
+		"/C/xampp/htdocs/socialite/resources/views/layouts/app.blade.php",
+		"/C/xampp/htdocs/socialite/routes/web.php",
+		"/C/xampp/htdocs/socialite/resources/views/locations/edit.blade.php",
+		"/C/xampp/htdocs/socialite/resources/views/items/edit.blade.php",
+		"/C/xampp/htdocs/socialite/resources/views/locations/index.blade.php",
+		"/C/xampp/htdocs/socialite/resources/views/items/index.blade.php",
+		"/C/xampp/htdocs/socialite/app/Exports/PricesExport.php",
+		"/C/xampp/htdocs/socialite/resources/views/monitor/index.blade.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/MonitorController.php",
+		"/C/xampp/htdocs/socialite/app/Item.php",
+		"/C/xampp/htdocs/socialite/app/price.php",
+		"/C/xampp/htdocs/socialite/config/app.php",
+		"/C/xampp/htdocs/socialite/app/Location.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2019_07_11_103030_add_soft_deletes_to_locations_and_items.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2019_07_09_112906_create_prices_table.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2019_07_09_094432_add_is_admin_column_to_users.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/HomeController.php",
+		"/C/xampp/htdocs/socialite/resources/lang/es.json",
+		"/C/xampp/htdocs/socialite/resources/lang/es/passwords.php",
+		"/C/xampp/htdocs/socialite/resources/lang/es/pagination.php",
+		"/C/xampp/htdocs/socialite/resources/lang/es/auth.php",
+		"/C/xampp/htdocs/socialite/resources/lang/es/validation.php",
+		"/C/xampp/htdocs/socialite/app/Http/Middleware/Admin.php",
+		"/C/xampp/htdocs/socialite/app/Http/Kernel.php",
+		"/C/xampp/htdocs/socialite/routes/api.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2019_07_08_114827_create_items_table.php",
+		"/C/xampp/htdocs/socialite/resources/views/auth/login.blade.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/SocialiteController.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/Auth/LoginController.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2019_06_28_152249_create_locations_table.php",
+		"/C/xampp/htdocs/socialite/config/services.php",
+		"/C/xampp/htdocs/socialite/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/socialite/.env",
+		"/C/xampp/htdocs/socialite/app/User.php",
+		"/C/xampp/htdocs/socialite/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/socialite/public/css/app.css",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/Controller.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/Auth/RegisterController.php",
+		"/C/xampp/htdocs/socialite/vendor/laravel/framework/src/Illuminate/Auth/GuardHelpers.php",
+		"/C/xampp/htdocs/socialite/vendor/symfony/routing/Route.php",
+		"/C/xampp/htdocs/socialite/vendor/symfony/routing/Annotation/Route.php",
+		"/C/xampp/htdocs/socialite/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+		"/C/xampp/htdocs/socialite/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php",
+		"/C/xampp/htdocs/socialite/routes/channels.php",
+		"/C/xampp/htdocs/socialite/routes/console.php",
+		"/C/xampp/htdocs/socialite/resources/lang/en/auth.php",
+		"/C/xampp/htdocs/socialite/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/socialite/composer.json",
+		"/C/xampp/htdocs/socialite/public/.htaccess",
+		"/C/xampp/htdocs/socialite/.htaccess",
+		"/C/xampp/htdocs/socialite/resources/views/auth/register.blade.php",
+		"/C/xampp/htdocs/socialite/app/Http/Controllers/SocialController.php",
+		"/C/xampp/htdocs/socialite/vendor/symfony/routing/Matcher/RedirectableUrlMatcherInterface.php",
+		"/C/xampp/htdocs/restfull/app/User.php",
+		"/C/xampp/htdocs/restfull/database/migrations/2019_06_24_223403_alter_create_password_resets_table.php",
+		"/C/xampp/htdocs/restfull/app/PasswordReset.php",
+		"/C/xampp/htdocs/restfull/app/Notifications/PasswordResetRequest.php",
+		"/C/xampp/htdocs/restfull/app/Notifications/PasswordResetSuccess.php",
+		"/C/xampp/htdocs/restfull/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/restfull/app/Notifications/SignupActivate.php",
+		"/C/xampp/htdocs/restfull/app/Http/Controllers/AuthController.php",
+		"/C/xampp/htdocs/restfull/routes/api.php",
+		"/C/xampp/htdocs/restfull/app/Http/Controllers/Auth/PasswordResetController.php",
+		"/C/xampp/htdocs/restfull/config/app.php",
+		"/C/xampp/htdocs/restfull/config/mail.php",
+		"/C/xampp/htdocs/restfull/.env",
+		"/C/xampp/htdocs/restfull/app/Providers/AuthServiceProvider.php",
+		"/C/xampp/htdocs/restfull/config/auth.php",
+		"/C/xampp/htdocs/restfull/app/Providers/AppServiceProvider.php"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "SublimeApiRestfull.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"is_admin",
+				"database\\migrations\\2019_07_09_094432_add_is_admin_column_to_users.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
