@@ -9,6 +9,16 @@ use App\Http\Controllers\ApiController;
 
 class ProductCategoryController extends ApiController
 {
+    //registro del middleware para accesos de solo visualizacion
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index']);//informacion publica
+        $this->middleware('auth:api')->except(['index']);
+        $this->middleware('scope:manage-products')->except('index');//permite o restringe crear, actualizar y eliminar categoria de productos
+        //restricciones con policies
+        $this->middleware('can:add-category,product')->only('update');//separar con guion nombre
+        $this->middleware('can:delete-category,product')->only('destroy');//separar con guion
+    }
     /**
      * Display a listing of the resource.
      *

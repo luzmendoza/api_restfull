@@ -8,10 +8,24 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Storage;
+use App\Transformers\ProductTransformer;
+use Illuminate\Auth\AuthenticationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class SellerProductController extends ApiController
 {
+    //registro del middleware
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.input:' . ProductTransformer::class)->only(['store', 'update']);
+        $this->middleware('scope:manage-products')->except('index');//permite o restringe crear, actualizar y eliminar productos
+        $this->middleware('can:view,seller')->only('index');//policy
+        $this->middleware('can:sale,seller')->only('store');//policy
+        $this->middleware('can:edit-product,seller')->only('update');//policy... se pone con guion editProduct
+        $this->middleware('can:delete-product,seller')->only('destroy');//policy
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,10 +33,14 @@ class SellerProductController extends ApiController
      */
     public function index(Seller $seller)
     {
-        //regresa una lista de productos del vendedor seleccioando
-        $products = $seller->products;
-
-        return $this->showAll($products);
+        //validar el permiso para la accion mediante tokens
+       if (request()->user()->tokenCan('read-general') || request()->user()->tokenCan('manage-products')) {
+            //regresa una lista de productos del vendedor seleccioando
+            $products = $seller->products;
+            return $this->showAll($products);
+        }
+        //respuesta en caso de no estar autenticado
+        throw new AuthenticationException;
     }
 
    

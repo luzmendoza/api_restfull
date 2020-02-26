@@ -3,7 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
-use App\Traists\ApiResponser;
+use App\Traits\ApiResponser;
+use Asm89\Stack\CorsService;
 use Illuminate\Database\QueryException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
@@ -56,6 +57,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $response = $this->handleException($request, $exception);
+        
+        app(CorsService::class)->addActualRequestHeaders($response, $request);
+
+        return $response;
+    }
+
+    //metodo para devolver las excepciones para un correcto uso de cors
+    public function handleException($request, Exception $exception)
+    {
         //validacion de una excepcion, un error
         if ($exception instanceof ValidationException) {
             return $this->convertValidationExceptionToResponse($exception, $request);
@@ -100,6 +111,9 @@ class Handler extends ExceptionHandler
             }
         }
 
+         if ($exception instanceof TokenMismatchException) {
+            return redirect()->back()->withInput($request->input());
+        }
         //return parent::render($request, $exception);
         //fallas inesperadas del sistema, si se cae la bd o algo asi
         if (config('app.debug')) {
@@ -108,16 +122,35 @@ class Handler extends ExceptionHandler
         return $this->errorResponse('Falla inesperada. Intente luego', 500);
     }
 
-    //respuesta de las excepciones
-     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
+//respuesta de la validacion de autenticacion, cuando un usuario no esta autenticado
+     protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($this->isFrontend($request)) {
+            return redirect()->guest('login');
+        }
+        return $this->errorResponse('No autenticado.', 401);        
+    }
+    /**
+     *  //respuesta de las excepciones
+     *
+     * @param  \Illuminate\Validation\ValidationException  $e
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
         $errors = $e->validator->errors()->getMessages();
+        if ($this->isFrontend($request)) {
+            return $request->ajax() ? response()->json($errors, 422) : redirect()
+                ->back()
+                ->withInput($request->input())
+                ->withErrors($errors);
+        }
         return $this->errorResponse($errors, 422);
     }
-
-    //respuesta de la validacion de autenticacion
-    protected function unauthenticated($request, AuthenticationException $exception)
+    //validar que la solicitud es desde un frontend
+    private function isFrontend($request)
     {
-        return $this->errorResponse('No autenticado.', 401);        
+        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
     }
 }

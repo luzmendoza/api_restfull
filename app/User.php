@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Laravel\Passport\HasApiTokens;
 use App\Transformers\UserTransformer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,8 +11,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-
-    use Notifiable,SoftDeletes;
+    //HasApiTokens es de laravel passport para la utenticacion de usuarios
+    use Notifiable, HasApiTokens, SoftDeletes;
 
     //constantes
     const USUARIO_VERIFICADO = '1';

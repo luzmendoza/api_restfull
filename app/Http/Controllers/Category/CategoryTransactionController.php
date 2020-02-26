@@ -8,6 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class CategoryTransactionController extends ApiController
 {
+     public function __construct()
+    {
+       parent::__construct();//llama al constructor de la clase padre
+    }
     /**LISTA DE TRANSACCIONES PARA UNA CATEGORIA
      * Display a listing of the resource.
      *
@@ -15,6 +19,9 @@ class CategoryTransactionController extends ApiController
      */
     public function index(Category $category)
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+        
         //lista de transacciones por producto de esa categoria
         $transactions = $category->products()
                         ->whereHas('transactions')//obtiene los productos que tenga por lo menos una venta

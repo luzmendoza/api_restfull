@@ -8,6 +8,14 @@ use App\Http\Controllers\ApiController;
 
 class BuyerController extends ApiController
 {
+     public function __construct()
+    {
+       parent::__construct();//llama al constructor de la clase padre
+       $this->middleware('scope:read-general')->only(['show']);//permite o restringe lectura
+       //permisos mediante policy
+       $this->middleware('can:view,buyer')->only('show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +23,9 @@ class BuyerController extends ApiController
      */
     public function index()
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+
         //obtener todos los compradores
         $compradores = Buyer::has('transactions')->get();
 

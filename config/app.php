@@ -165,11 +165,13 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravel\Passport\PassportServiceProvider::class,
         Spatie\Fractal\FractalServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
+        \Fruitcake\Cors\CorsServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

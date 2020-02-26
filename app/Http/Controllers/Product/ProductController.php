@@ -8,6 +8,12 @@ use App\Http\Controllers\ApiController;
 
 class ProductController extends ApiController
 {
+    //registro del middleware para dar accesos de solo visualizacion
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *

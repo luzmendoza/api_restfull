@@ -19,7 +19,18 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//registro de componentes vue
+Vue.component(
+    'passport-personal-access-tokens',//nombre del componente
+    require('./components/passport/PersonalAccessTokens.vue').default);//ruta del componente
+
+Vue.component(
+    'passport-clients',//nombre del componente
+    require('./components/passport/Clients.vue').default);//ruta del componente
+
+Vue.component(
+    'passport-authorized-clients',//nombre del componente
+    require('./components/passport/AuthorizedClients.vue').default);//ruta del componente
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

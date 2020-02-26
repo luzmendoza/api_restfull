@@ -8,11 +8,19 @@ use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ApiController;
+use App\Transformers\TransactionTransformer;
 
 class ProductBuyerTransactionController extends ApiController
 {
-    
-
+    //registro del middleware
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('transform.input:' . TransactionTransformer::class)->only(['store']);
+        $this->middleware('scope:purchase-product')->only('store');//permite o restringe 
+        //restringe o permite por policy
+        $this->middleware('can:purchase,buyer')->only('store');
+    }
     /**
      * Store a newly created resource in storage.
      *

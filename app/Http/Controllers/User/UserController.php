@@ -6,10 +6,25 @@ use App\User;
 use App\Mail\UserCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Transformers\UserTransformer;
 use App\Http\Controllers\ApiController;
 
 class UserController extends ApiController
 {
+    //utilizando un middleware para transformar los datos de entrada y usar los transformadores
+    public function __construct()
+    {
+        //permitir crear nuevos usuario y reenviar el correo
+        $this->middleware('client.credentials')->only(['store', 'resend']);
+        $this->middleware('auth:api')->except(['store', 'verify', 'resend']);
+        //registrar el middleware
+        $this->middleware('transform.input:'. UserTransformer::class)->only(['store', 'update']);
+        $this->middleware('scope:manage-account')->only(['show','update']);//permite o restringe  actualizar y visualizar
+        //restricciones mediante policies
+        $this->middleware('can:view,user')->only('show');
+        $this->middleware('can:update,user')->only('update');
+        $this->middleware('can:delete,user')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +32,9 @@ class UserController extends ApiController
      */
     public function index()
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+
         //acceder a la lista completa de usuarios
         $usuarios = User::all();
         //regresar la lista
@@ -102,6 +120,9 @@ class UserController extends ApiController
             $user->password = bcrypt($request->password);
         }
         if ($request->has('admin')) {
+            //valida si es administrador
+            $this->allowedAdminAction();
+            //si el usuario esta verificado
             if (!$user->esVerificado()) {
                 # respuesta de error
                 return $this->errorResponse('Error, solo usuario verificado puede cambiar su valor a administrado', 409);
@@ -132,6 +153,14 @@ class UserController extends ApiController
          //eliminar
          $user->delete();
          //regresar una respuesta
+        return $this->showOne($user);
+    }
+
+    //devuelve la informacion del usuario autenticado
+    public function me(Request $request)
+    {
+        $user = $request->user();
+
         return $this->showOne($user);
     }
 

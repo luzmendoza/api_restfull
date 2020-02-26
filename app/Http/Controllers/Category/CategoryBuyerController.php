@@ -8,6 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class CategoryBuyerController extends ApiController
 {
+     public function __construct()
+    {
+       parent::__construct();//llama al constructor de la clase padre
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,10 @@ class CategoryBuyerController extends ApiController
      */
     public function index(Category $category)
     {
-        //
+        //valida si es administrador
+        $this->allowedAdminAction();
+
+        //obtiene la lista
         $buyers = $category->products()
                     ->whereHas('transactions')//obtiene los productos que tenga por lo menos una venta
                     ->with('transactions.buyer')//lista de transacciones y el comprador

@@ -46,7 +46,14 @@ Route::resource('products.buyers.transactions','Product\ProductBuyerTransactionC
 Route::resource('transactions','Transaction\TransactionController', ['only'=> ['index', 'show']]);
 Route::resource('transactions.categories','Transaction\TransactionCategoryController', ['only'=> ['index']]);
 Route::resource('transactions.sellers', 'Transaction\TransactionSellerController', ['only' => ['index']]);
+
+//regresar informacion del usuario que esta actualmente autenticado -users/me
+Route::name('me')->get('users/me','User\UserController@me');
 //user... muestra todas las rutas excepto crear y editar, los cuales son formularios, pero se realizara la accion de crear y editar a traves de los metdos pot, update, delete
 Route::resource('users','User\UserController', ['except'=> ['create', 'edit']]);
+//verificar y reenviar un token
 Route::name('verify')->get('users/verify/{token}','User\UserController@verify');
 Route::name('resend')->get('users/{user}/resend','User\UserController@resend');
+
+//registrar ruta de oauth toke para dejar de usar el trhout middleware
+Route::post('oauth/token','\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');

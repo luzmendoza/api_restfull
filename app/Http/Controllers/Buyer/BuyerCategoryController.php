@@ -8,6 +8,13 @@ use App\Http\Controllers\ApiController;
 
 class BuyerCategoryController extends ApiController
 {
+     public function __construct()
+    {
+       parent::__construct();//llama al constructor de la clase padre
+       $this->middleware('scope:read-general')->only(['index']);//permite o restringe lectura
+       //permisos mediante policy
+       $this->middleware('can:view,buyer')->only('index');//accion,metodo,recurso
+    }
     /**
      * Display a listing of the resource.
      *

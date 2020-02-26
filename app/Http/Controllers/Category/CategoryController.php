@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Category;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
+use App\Transformers\CategoryTransformer;
 
 class CategoryController extends ApiController
 {
+    //registro del middleware
+    public function __construct()
+    {
+        $this->middleware('client.credentials')->only(['index', 'show']);//permisos de visualizacion
+        $this->middleware('auth:api')->except(['index', 'show']);
+        $this->middleware('transform.input:' . CategoryTransformer::class)->only(['store', 'update']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +36,9 @@ class CategoryController extends ApiController
      */
     public function store(Request $request)
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+
         //reglas
         $rules = [
             'name' => 'required',
@@ -63,6 +74,9 @@ class CategoryController extends ApiController
      */
     public function update(Request $request, Category $category)
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+        
         //
         $category->fill($request->only([
             'name',
@@ -89,6 +103,9 @@ class CategoryController extends ApiController
      */
     public function destroy(Category $category)
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+        
         //eliminar
         $category->delete();
         //respuesta

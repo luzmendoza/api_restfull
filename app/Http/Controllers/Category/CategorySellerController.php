@@ -8,6 +8,10 @@ use App\Http\Controllers\ApiController;
 
 class CategorySellerController extends ApiController
 {
+     public function __construct()
+    {
+       parent::__construct();//llama al constructor de la clase padre
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,9 @@ class CategorySellerController extends ApiController
      */
     public function index(Category $category)
     {
+        //valida si es administrador
+        $this->allowedAdminAction();
+
         //lista de sellers de cada producto
         $sellers = $category->products()
                     ->with('seller')
